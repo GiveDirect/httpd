@@ -1,0 +1,28 @@
+==========================
+Access to the GiveDirect POS Android App via file.json and t-file.json
+==========================
+
+This directory and it's files are referenced by the Android GiveDirect POS App for authorization of depositing public addresses.  Meaning if you do not have your public key in the file.json (stellar mainnet file) or t-file.json (stellar testnet file)... The POS app will not run beyond the initial screen and ask for registration via an email to wallet@givedirect.io. If that occurs someone has to change these files manually to allow app use. Once the app users, deposit address is added to the correct file they will be allowed to accept deposits into there Stellar public address via GD-Wallet (NFC wristband) transactions. The file format explanation follows.
+
+--------------------
+Format
+--------------------
+File Version - This value should be incremented each time the file is changed and serves only as a reference for the GD team
+
+Seed - This values is used in creating the GD-Key which is stored on the NFC chip / GD Wallet and should not be changed, as if it doesn't match, it will disable all transactions for all GD POS APPs with all GD-Wallets
+
+PubKey {} - "Discord Handle" : "XLM public deposit address"  -- Altering this temporarily will stop a single POS app from accepting transactions from any GD Wallet
+
+--------------------
+Example
+--------------------
+"File Version": "0.5"
+"Seed": "SEvq3ARqe5",
+"PubKey": {
+    "Cryptolib": "GD464URJCGA6Y5AD4POVORJXLZH5VJZOCTAZKCCMRVZAZZZZKEPU3W2V",
+
+
+Note: This is a well formed JSON file and must remain that way for the App to process it.
+
+Questions #core-team Discord!
+

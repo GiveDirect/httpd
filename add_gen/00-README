@@ -1,0 +1,39 @@
+
+
+========================================
+Adding to the gd-wget-to-json.cgi file
+========================================
+
+Below you will find the steps needed to add a coin from http://cryptoanchor.io to the GiveDirect donation interface.
+
+1) Login to the Interstellar Wallet and add the coin, as a trusted source from cryptoanchor.io to the GD Paywall Escrow account.  Note, this change will require 3 of 6 signers on the account to approve of the change.  Please discuss this in the #core-team Discord channel, before you start, to make sure you have the support you need for the change you are trying to make. Only when the escrow account has the newly supported coin in the Interstellar Wallet should you proceed to the next step.
+
+2) SSH to the 1and1.com hosted server and cd to the directory where you will find this document.
+
+3) Next you will need to vi the gd-wget-to-json.cgi file, so that the correct addresses are fetched from the cryptoanchor.io api and downloaded for html processing
+
+4) Once editing the file, duplicate an existing line under the account for the coin you accepted in step #1... The format follows and must be maintained for successful results.
+
+---------------
+Format
+---------------
+wget -q --show-progress -O <paywall-results-file-html>.<asset-code>.<xlm-address>.json 'http://cryptoanchor.io/stellar/deposit?asset_code=<asset-code>&account=<xlm-address>'
+
+---------------
+Example -- Fetch the BTC address from cryptoanchor.io API that is associated with the XML address, and put it in the BI.html file.
+---------------
+wget -q --show-progress -O BI.BTC.GDHEWO2WAM6MFHPUHRZWCN3AWLW2BWXQU3VE67CLT5WVYGI6DSME24FT.json 'http://cryptoanchor.io/stellar/deposit?asset_code=BTC&account=GDHEWO2WAM6MFHPUHRZWCN3AWLW2BWXQU3VE67CLT5WVYGI6DSME24FT'
+
+Note: JSON file names are used, for paywall result HTML files and groupings, double check them for accuracy
+
+5) Write the file
+
+6) Run the script (./gd-wget-to-json.cgi)
+
+7) Verify the correct output by reading the script output and viewing the html page that was generated. (ie https://givedirect.io/add_gen/BI.html) 
+
+Note: You should check all file addresses, links and scan all QR codes for correctness... This script runs on a crontab 2 x per day.
+Ask in the #core-team channel in Discord if you have questions! :)
+
+Great Job!
+
