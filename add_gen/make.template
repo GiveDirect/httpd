@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache-control" content="no-store">
+<style>
+body {font-family: Lato;}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 0px solid #ccc;
+    background-color: #bebebe;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ff309e;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
+<title>BI - TS_NOW</title>
+</head>
+<body>
+
+<p>Choose the coin type you wish to donate:</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Stellar')" id="defaultOpen">Stellar (XLM)</button>
+  <button class="tablinks" onclick="openCity(event, 'Ethereum')">Ethereum (ETH)</button>
+  <button class="tablinks" onclick="openCity(event, 'Bitcoin')">Bitcoin (BTC)</button>
+  <button class="tablinks" onclick="openCity(event, 'Litecoin')">Litecoin (LTC)</button>
+  <button class="tablinks" onclick="openCity(event, 'Ripple')">Ripple (XRP)</button>
+</div>
+
+<div id="Stellar" class="tabcontent">
+    <p><img src="https://chart.googleapis.com/chart?cht=qr&chl=STELLAR_ADDRESS&chs=160x160&chld=L|0" />
+        <br><font size="-5">Min deposit: STELLAR_MIN</font></p>
+        <input type="text" size="6" value="STELLAR_ADDRESS" id="myInputXLM" readonly>
+	<button onclick="myFunctionXLM()">Copy Address</button>
+
+	<script>
+	function myFunctionXLM() {
+  	var copyText = document.getElementById("myInputXLM");
+ 	 copyText.select();
+  	document.execCommand("copy");
+  	alert("Copied the text: " + copyText.value);
+	}
+	</script>
+</div>
+
+<div id="Ethereum" class="tabcontent">
+    <p><img src="https://chart.googleapis.com/chart?cht=qr&chl=ETHER_ADDRESS&chs=160x160&chld=L|0" />
+        <br><font size="-5">Min deposit: ETHER_MIN</font></p>
+        <input type="text" size="6" value="ETHER_ADDRESS" id="myInputETH" readonly>
+	<button onclick="myFunctionETH()">Copy Address</button>
+
+	<script>
+	function myFunctionETH() {
+  	var copyText = document.getElementById("myInputETH");
+ 	 copyText.select();
+  	document.execCommand("copy");
+  	alert("Copied the text: " + copyText.value);
+	}
+	</script>
+</div>
+
+<div id="Bitcoin" class="tabcontent">
+    <p><img src="https://chart.googleapis.com/chart?cht=qr&chl=BITCOIN_ADDRESS&chs=160x160&chld=L|0" />
+        <br><font size="-5">Min deposit: BITCOIN_MIN</font></p>
+        <input type="text" size="6" value="BITCOIN_ADDRESS" id="myInputBTC" readonly>
+	<button onclick="myFunctionBTC()">Copy Address</button>
+
+	<script>
+	function myFunctionBTC() {
+  	var copyText = document.getElementById("myInputBTC");
+ 	 copyText.select();
+  	document.execCommand("copy");
+  	alert("Copied the text: " + copyText.value);
+	}
+	</script>
+</div>
+
+<div id="Litecoin" class="tabcontent">
+    <p><img src="https://chart.googleapis.com/chart?cht=qr&chl=LITECOIN_ADDRESS&chs=160x160&chld=L|0" />
+        <br><font size="-5">Min deposit: LITECOIN_MIN</font></p>
+        <input type="text" size="6" value="LITECOIN_ADDRESS" id="myInputLTC" readonly>
+	<button onclick="myFunctionLTC()">Copy Address</button>
+
+	<script>
+	function myFunctionLTC() {
+  	var copyText = document.getElementById("myInputLTC");
+ 	 copyText.select();
+  	document.execCommand("copy");
+  	alert("Copied the text: " + copyText.value);
+	}
+	</script>
+</div>
+
+<div id="Ripple" class="tabcontent">
+    <p><img src="https://chart.googleapis.com/chart?cht=qr&chl=RIPPLE_ADDRESS&chs=160x160&chld=L|0" />
+        <br><font size="-5">Min deposit: RIPPLE_MIN</font></p>
+        <p><input type="text" size="6" value="RIPPLE_ADDRESS" id="myInputXRP" readonly>
+	<button onclick="myFunctionXRP()">Copy Address</button></p>
+
+    <p><input type="text" size="6" value="RIPPLE_TAG" id="myInputXRPTAG" readonly>
+	<button onclick="myFunctionXRPTAG()">Copy Required Dest. Tag</button></p>
+
+	<script>
+	function myFunctionXRP() {
+  	var copyText = document.getElementById("myInputXRP");
+ 	 copyText.select();
+  	document.execCommand("copy");
+  	alert("Copied the text: " + copyText.value);
+	}
+    function myFunctionXRPTAG() {
+  	var copyText = document.getElementById("myInputXRPTAG");
+ 	 copyText.select();
+  	document.execCommand("copy");
+  	alert("Copied the text: " + copyText.value);
+	}
+	</script>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+</script>
+
+<p>On-Chain <a href="https://stellar.expert/explorer/public/account/STELLAR_ADDRESS" target="_blank">Details</a></p>
+     
+</body>
+</html> 

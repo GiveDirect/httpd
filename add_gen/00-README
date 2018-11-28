@@ -1,0 +1,37 @@
+Overview: 
+
+The new implementation does the same download on the server using wget to the anchor APIs to pull down a json file... Next 
+we build a series for "sed" regular expressions dynamically with the downloads json data using python... Finally we apply 
+the "sed" expressions to a template file replacing all the static tags with live data and clean up.... This job will be 
+scheduled to  run at the same frequency (morning and night daily) to keep the addresses and min. deposit amounts fresh... I'll 
+also, be checking the code in to the git for reference... Let me know if you have questions...   Cheers!
+
+===================
+File: gd-make.cgi
+Desc: This is the control file run by the 1an1 crontab twice per day to keep the anchor addresses up to date on our WP site via iframe
+===================
+
+===================
+File: make.py
+Desc: This is the json parser for creating the "sed" regular expression filters
+===================
+
+===================
+File: make.template
+Desc: This is the html template file the contains "tags" that the "sed" command replaces with actual live data
+===================
+
+===================
+File: make.sed
+Desc: This is a generated file from make.py and is used to create the make.html file with the make.template
+===================
+
+===================
+File: make.html
+Desc: This is a generated file from gd-make.cgi using "sed"; the make.template and make.sed files
+===================
+
+Question in discord... 
+
+Cheers!
+-- Kevin
